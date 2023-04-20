@@ -7,35 +7,26 @@ namespace Inventory_Problem
         public MainForm()
         {
             InitializeComponent();
-            Start();
-            AddText();
             RefreshLanguageStrings();
         }
 
-        private void Start()
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            this.comboBoxLanguageSelect.DataSource = new string[] { "Hrvatski", "English" };
+            this.comboBoxLanguageSelect.SelectedIndex = 0;
+        }
+
+        private void comboBoxLanguageSelect_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string language = "en";
+            if (comboBoxLanguageSelect.SelectedItem.ToString() == "Hrvatski") language = "hr";
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(language);
+            RefreshLanguageStrings();
         }
 
         private void RefreshLanguageStrings()
         {
-            this.label1.Text = Properties.strings.Hello;
+            this.Text = Properties.strings.AppName;
             this.languageLabel.Text = Properties.strings.Language;
-        }
-
-        private void AddText()
-        {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("hr");
-            this.label1.Text = Properties.strings.Hello;
-        }
-
-        private void comboBoxLanguageSelect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string? language = comboBoxLanguageSelect.SelectedItem.ToString();
-            if (language == "Hrvatski") language = "hr";
-            else language = "en";
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo(language);
-            RefreshLanguageStrings();
         }
     }
 }
