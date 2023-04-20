@@ -42,6 +42,7 @@
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.buttonCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -106,7 +107,7 @@
             // labelMaxCapacity
             // 
             this.labelMaxCapacity.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelMaxCapacity.Location = new System.Drawing.Point(3, 153);
+            this.labelMaxCapacity.Location = new System.Drawing.Point(3, 152);
             this.labelMaxCapacity.Name = "labelMaxCapacity";
             this.labelMaxCapacity.Size = new System.Drawing.Size(185, 17);
             this.labelMaxCapacity.TabIndex = 12;
@@ -181,12 +182,23 @@
             this.numericUpDown6.Size = new System.Drawing.Size(120, 23);
             this.numericUpDown6.TabIndex = 22;
             // 
+            // buttonCalculate
+            // 
+            this.buttonCalculate.Location = new System.Drawing.Point(349, 267);
+            this.buttonCalculate.Name = "buttonCalculate";
+            this.buttonCalculate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCalculate.TabIndex = 23;
+            this.buttonCalculate.Text = "Calculate";
+            this.buttonCalculate.UseVisualStyleBackColor = true;
+            this.buttonCalculate.Click += new System.EventHandler(this.buttonCalculate_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCalculate);
             this.Controls.Add(this.numericUpDown6);
             this.Controls.Add(this.numericUpDown5);
             this.Controls.Add(this.numericUpDown4);
@@ -229,5 +241,6 @@
         private NumericUpDown numericUpDown4;
         private NumericUpDown numericUpDown5;
         private NumericUpDown numericUpDown6;
+        private Button buttonCalculate;
     }
 }

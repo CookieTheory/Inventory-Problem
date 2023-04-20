@@ -120,10 +120,43 @@
   <data name="AppName" xml:space="preserve">
     <value>Inventory problem</value>
   </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="CostPerProcurement" xml:space="preserve">
+    <value>Cost per procurement:</value>
+  </data>
+  <data name="Demands" xml:space="preserve">
+    <value>Demands</value>
+  </data>
+  <data name="DemandsOf" xml:space="preserve">
+    <value>Demands of </value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Language:</value>
+  </data>
+  <data name="MaxCapacity" xml:space="preserve">
+    <value>Maximum capacity size:</value>
+  </data>
+  <data name="MaxPurchase" xml:space="preserve">
+    <value>Maximum purchase volume:</value>
+  </data>
+  <data name="Null" xml:space="preserve">
+    <value>Values cannot be null.</value>
+  </data>
+  <data name="NumPeriods" xml:space="preserve">
+    <value>Number of periods:</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value> period:</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size of installments:</value>
+  </data>
+  <data name="StorageCosts" xml:space="preserve">
+    <value>Storage costs per unit:</value>
   </data>
 </root>

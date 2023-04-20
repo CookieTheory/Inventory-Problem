@@ -120,10 +120,43 @@
   <data name="AppName" xml:space="preserve">
     <value>Problem nabave</value>
   </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Izračunaj</value>
+  </data>
+  <data name="CostPerProcurement" xml:space="preserve">
+    <value>Nabavni trošak:</value>
+  </data>
+  <data name="Demands" xml:space="preserve">
+    <value>Potražnje</value>
+  </data>
+  <data name="DemandsOf" xml:space="preserve">
+    <value>Potražnja </value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Pozdrav</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Jezik:</value>
+  </data>
+  <data name="MaxCapacity" xml:space="preserve">
+    <value>Kapacitet skladišta:</value>
+  </data>
+  <data name="MaxPurchase" xml:space="preserve">
+    <value>Maksimalna količina nabave:</value>
+  </data>
+  <data name="Null" xml:space="preserve">
+    <value>Vrijednosti ne smiju ostati prazne.</value>
+  </data>
+  <data name="NumPeriods" xml:space="preserve">
+    <value>Broj razdoblja:</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value> razdoblja:</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Veličina nabavne rate:</value>
+  </data>
+  <data name="StorageCosts" xml:space="preserve">
+    <value>Troškovi skladištenja po jedinici:</value>
   </data>
 </root>

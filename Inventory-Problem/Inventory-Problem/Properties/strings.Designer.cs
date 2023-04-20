@@ -70,6 +70,42 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Calculate.
+        /// </summary>
+        internal static string Calculate {
+            get {
+                return ResourceManager.GetString("Calculate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cost per procurement:.
+        /// </summary>
+        internal static string CostPerProcurement {
+            get {
+                return ResourceManager.GetString("CostPerProcurement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demands.
+        /// </summary>
+        internal static string Demands {
+            get {
+                return ResourceManager.GetString("Demands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demands of .
+        /// </summary>
+        internal static string DemandsOf {
+            get {
+                return ResourceManager.GetString("DemandsOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         internal static string Hello {
@@ -84,6 +120,69 @@ namespace Inventory_Problem.Properties {
         internal static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum capacity size:.
+        /// </summary>
+        internal static string MaxCapacity {
+            get {
+                return ResourceManager.GetString("MaxCapacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum purchase volume:.
+        /// </summary>
+        internal static string MaxPurchase {
+            get {
+                return ResourceManager.GetString("MaxPurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Values cannot be null..
+        /// </summary>
+        internal static string Null {
+            get {
+                return ResourceManager.GetString("Null", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of periods:.
+        /// </summary>
+        internal static string NumPeriods {
+            get {
+                return ResourceManager.GetString("NumPeriods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  period:.
+        /// </summary>
+        internal static string Period {
+            get {
+                return ResourceManager.GetString("Period", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size of installments:.
+        /// </summary>
+        internal static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Storage costs per unit:.
+        /// </summary>
+        internal static string StorageCosts {
+            get {
+                return ResourceManager.GetString("StorageCosts", resourceCulture);
             }
         }
     }

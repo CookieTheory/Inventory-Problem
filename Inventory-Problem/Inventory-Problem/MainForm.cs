@@ -4,6 +4,8 @@ namespace Inventory_Problem
 {
     public partial class MainForm : Form
     {
+        public static float[]? demands;
+
         public MainForm()
         {
             InitializeComponent();
@@ -27,6 +29,20 @@ namespace Inventory_Problem
         {
             this.Text = Properties.strings.AppName;
             this.languageLabel.Text = Properties.strings.Language;
+            this.labelCostProcurement.Text = Properties.strings.CostPerProcurement;
+            this.labelMaxCapacity.Text = Properties.strings.MaxCapacity;
+            this.labelMaxVolume.Text = Properties.strings.MaxPurchase;
+            this.labelNumPeriods.Text = Properties.strings.NumPeriods;
+            this.labelSizeOfInstallments.Text = Properties.strings.Size;
+            this.labelStorageCosts.Text = Properties.strings.StorageCosts;
+            this.buttonCalculate.Text = Properties.strings.Calculate;
+        }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            Form demand = new Demands((int)this.numericUpDown6.Value);
+            demand.ShowDialog();
+
         }
     }
 }
