@@ -65,12 +65,12 @@ namespace Inventory_Problem
 
         private void ReturnPeriodValues(object? sender, EventArgs e)
         {
-            MainForm.demands = new float[numberOfPeriods];
+            MainForm.demands = new decimal[numberOfPeriods];
             try
             {
                 for (int i = 0; i < numberOfPeriods; i++)
                 {
-                    MainForm.demands[i] = float.Parse(textBoxList[i].Text);
+                    MainForm.demands[i] = decimal.Parse(textBoxList[i].Text);
                 }
                 Close();
             }

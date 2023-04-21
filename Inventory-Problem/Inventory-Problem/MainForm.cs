@@ -4,7 +4,7 @@ namespace Inventory_Problem
 {
     public partial class MainForm : Form
     {
-        public static float[]? demands;
+        public static decimal[]? demands;
         public static decimal installments, maxVolume, cost, maxStorage, storageCost, numPeriods;
         public static decimal[,]? table;
         public static int globalPeriod = 0;
@@ -33,8 +33,11 @@ namespace Inventory_Problem
             AddValues();
             Form demand = new Demands((int)this.numericUpDown6.Value);
             demand.ShowDialog();
+            this.Hide();
+            MainForm.globalPeriod += 1;
             Form firstPeriod = new FirstPeriod();
             firstPeriod.ShowDialog();
+            this.Show();
         }
 
         private void AddValues()

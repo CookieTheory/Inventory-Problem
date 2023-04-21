@@ -23,7 +23,9 @@ namespace Inventory_Problem
         private void FirstPeriod_Load(object sender, EventArgs e)
         {
             AddColumns();
-            labelFirstPeriod1.Text = new string(MainForm.maxStorage + " + " + MainForm.installments + " - " + MainForm.maxStorage + " <= " + Properties.strings.Procurement + "(1) <= " + MainForm.maxStorage + " + " + MainForm.installments);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            labelFirstPeriod1.Text = new string(MainForm.maxStorage + " + " + MainForm.demands[0] + " - " + MainForm.maxStorage + " <= " + Properties.strings.Procurement + "(1) <= " + MainForm.maxStorage + " + " + MainForm.demands[0]);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             CalculateFirstPeriod();
         }
 
@@ -42,28 +44,30 @@ namespace Inventory_Problem
             x = 10;
             y = 100;
             z = 75;
-            decimal minProcurement = MainForm.maxStorage + MainForm.installments - MainForm.maxStorage;
-            decimal maxProcurement = MainForm.maxStorage + MainForm.installments;
+            decimal minProcurement = MainForm.maxStorage + MainForm.demands[0] - MainForm.maxStorage;
+            decimal maxProcurement = MainForm.maxStorage + MainForm.demands[0];
             labelFirstPeriod2.Text = new string(minProcurement + " <= " + Properties.strings.Procurement + "(1) <= " + maxProcurement);
             int j = 0;
             for (decimal i = minProcurement; i <= maxProcurement; i += MainForm.installments)
             {
                 j++;
             }
-            MainForm.table = new decimal[j, (int)MainForm.numPeriods];
+            MainForm.table = new decimal[j, (int)MainForm.numPeriods * 2 + 1];
             j = 0;
             for (decimal i = minProcurement; i <= maxProcurement; i += MainForm.installments)
             {
                 Label a = new Label();
                 decimal procurementCost = 0;
                 if (i > 0) procurementCost = MainForm.cost;
-                MainForm.table[j, MainForm.globalPeriod] = procurementCost + (j * MainForm.installments * MainForm.storageCost);
-                a.Text = "f(" + (j+1) + ") = [" + i + ", " + (i - MainForm.installments) + "] = " + procurementCost + " + " + ((i - MainForm.installments)*MainForm.storageCost) + " = " + MainForm.table[j, MainForm.globalPeriod].ToString();
+                MainForm.table[j, (MainForm.globalPeriod - 1)] = j * MainForm.installments;
+                MainForm.table[j, MainForm.globalPeriod] = i;
+                MainForm.table[j, MainForm.globalPeriod + 1] = procurementCost + (j * MainForm.installments * MainForm.storageCost);
+                a.Text = "f(" + (j + 1) + ") = [" + i + ", " + (j - MainForm.installments) + "] = " + procurementCost + " + " + ((i - MainForm.installments) * MainForm.storageCost) + " = " + MainForm.table[j, MainForm.globalPeriod].ToString();
                 a.Location = new Point(x, y);
                 a.AutoSize = false;
                 a.Size = new Size(437, 23);
                 this.Controls.Add(a);
-                dt.Rows.Add(i - MainForm.installments, i, MainForm.table[j, MainForm.globalPeriod]);
+                dt.Rows.Add(MainForm.table[j, MainForm.globalPeriod - 1], i, MainForm.table[j, MainForm.globalPeriod + 1]);
                 y += 25; z += 25; j++;
             }
             DataGridView dgv = new DataGridView();
@@ -90,11 +94,16 @@ namespace Inventory_Problem
 
         private void GoToNextPeriod(object? sender, EventArgs e)
         {
-            this.Close();
+            MainForm.globalPeriod += 1;
+            this.Hide();
+            Form nextPeriod = new OtherPeriods();
+            nextPeriod.ShowDialog();
+            this.Show();
         }
 
         private void GoBack(object? sender, EventArgs e)
         {
+            MainForm.globalPeriod -= 1;
             this.Close();
         }
     }
