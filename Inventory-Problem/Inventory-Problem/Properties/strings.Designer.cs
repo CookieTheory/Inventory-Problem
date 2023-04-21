@@ -70,6 +70,15 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        internal static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculate.
         /// </summary>
         internal static string Calculate {
@@ -142,6 +151,15 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next period.
+        /// </summary>
+        internal static string NextPeriod {
+            get {
+                return ResourceManager.GetString("NextPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Values cannot be null..
         /// </summary>
         internal static string Null {
@@ -169,6 +187,15 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Procurement.
+        /// </summary>
+        internal static string Procurement {
+            get {
+                return ResourceManager.GetString("Procurement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Size of installments:.
         /// </summary>
         internal static string Size {
@@ -183,6 +210,15 @@ namespace Inventory_Problem.Properties {
         internal static string StorageCosts {
             get {
                 return ResourceManager.GetString("StorageCosts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supplies.
+        /// </summary>
+        internal static string Supplies {
+            get {
+                return ResourceManager.GetString("Supplies", resourceCulture);
             }
         }
     }

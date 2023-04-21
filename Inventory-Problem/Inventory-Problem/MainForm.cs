@@ -5,6 +5,9 @@ namespace Inventory_Problem
     public partial class MainForm : Form
     {
         public static float[]? demands;
+        public static decimal installments, maxVolume, cost, maxStorage, storageCost, numPeriods;
+        public static decimal[,]? table;
+        public static int globalPeriod = 0;
 
         public MainForm()
         {
@@ -25,6 +28,25 @@ namespace Inventory_Problem
             RefreshLanguageStrings();
         }
 
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            AddValues();
+            Form demand = new Demands((int)this.numericUpDown6.Value);
+            demand.ShowDialog();
+            Form firstPeriod = new FirstPeriod();
+            firstPeriod.ShowDialog();
+        }
+
+        private void AddValues()
+        {
+            installments = this.numericUpDown1.Value;
+            maxVolume = this.numericUpDown2.Value;
+            cost = this.numericUpDown3.Value;
+            maxStorage= this.numericUpDown4.Value;
+            storageCost = this.numericUpDown5.Value;
+            numPeriods = this.numericUpDown6.Value;
+        }
+
         private void RefreshLanguageStrings()
         {
             this.Text = Properties.strings.AppName;
@@ -36,13 +58,6 @@ namespace Inventory_Problem
             this.labelSizeOfInstallments.Text = Properties.strings.Size;
             this.labelStorageCosts.Text = Properties.strings.StorageCosts;
             this.buttonCalculate.Text = Properties.strings.Calculate;
-        }
-
-        private void buttonCalculate_Click(object sender, EventArgs e)
-        {
-            Form demand = new Demands((int)this.numericUpDown6.Value);
-            demand.ShowDialog();
-
         }
     }
 }
