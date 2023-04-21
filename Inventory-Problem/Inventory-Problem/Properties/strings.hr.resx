@@ -138,6 +138,9 @@
   <data name="DemandsOf" xml:space="preserve">
     <value>Potražnja </value>
   </data>
+  <data name="FirstPeriod" xml:space="preserve">
+    <value>Prvi period</value>
+  </data>
   <data name="Hello" xml:space="preserve">
     <value>Pozdrav</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="NumPeriods" xml:space="preserve">
     <value>Broj razdoblja:</value>
+  </data>
+  <data name="OtherPeriod" xml:space="preserve">
+    <value>razdoblje</value>
   </data>
   <data name="Period" xml:space="preserve">
     <value> razdoblja:</value>

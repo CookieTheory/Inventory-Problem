@@ -124,6 +124,15 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First period.
+        /// </summary>
+        internal static string FirstPeriod {
+            get {
+                return ResourceManager.GetString("FirstPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello.
         /// </summary>
         internal static string Hello {
@@ -183,6 +192,15 @@ namespace Inventory_Problem.Properties {
         internal static string NumPeriods {
             get {
                 return ResourceManager.GetString("NumPeriods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to period.
+        /// </summary>
+        internal static string OtherPeriod {
+            get {
+                return ResourceManager.GetString("OtherPeriod", resourceCulture);
             }
         }
         

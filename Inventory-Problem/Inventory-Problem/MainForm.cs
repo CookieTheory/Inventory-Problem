@@ -8,6 +8,7 @@ namespace Inventory_Problem
         public static decimal installments, maxVolume, cost, maxStorage, storageCost, numPeriods;
         public static decimal[,]? table;
         public static int globalPeriod = 0;
+        public static bool forceClose = true;
 
         public MainForm()
         {
@@ -34,7 +35,7 @@ namespace Inventory_Problem
             Form demand = new Demands((int)this.numericUpDown6.Value);
             demand.ShowDialog();
             this.Hide();
-            MainForm.globalPeriod += 1;
+            MainForm.globalPeriod = 1;
             Form firstPeriod = new FirstPeriod();
             firstPeriod.ShowDialog();
             this.Show();
@@ -45,7 +46,7 @@ namespace Inventory_Problem
             installments = this.numericUpDown1.Value;
             maxVolume = this.numericUpDown2.Value;
             cost = this.numericUpDown3.Value;
-            maxStorage= this.numericUpDown4.Value;
+            maxStorage = this.numericUpDown4.Value;
             storageCost = this.numericUpDown5.Value;
             numPeriods = this.numericUpDown6.Value;
         }

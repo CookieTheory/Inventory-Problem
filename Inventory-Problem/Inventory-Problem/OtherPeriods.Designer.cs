@@ -49,6 +49,7 @@
             this.Controls.Add(this.label1);
             this.Name = "OtherPeriods";
             this.Text = "OtherPeriods";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OtherPeriods_FormClosed);
             this.Load += new System.EventHandler(this.OtherPeriods_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

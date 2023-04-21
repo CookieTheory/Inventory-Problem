@@ -12,16 +12,18 @@ namespace Inventory_Problem
 {
     public partial class OtherPeriods : Form
     {
-        private DataTable dt = new DataTable();
+        private readonly DataTable dt = new();
         private int x, y, z;
         public OtherPeriods()
         {
             InitializeComponent();
+            MainForm.forceClose = true;
         }
 
         private void OtherPeriods_Load(object sender, EventArgs e)
         {
             label1.Text = "f(" + MainForm.globalPeriod + ")";
+            this.Text = MainForm.globalPeriod.ToString() + ". " + Properties.strings.OtherPeriod;
             AddColumns();
             CalculateOtherPeriods();
         }
@@ -54,7 +56,7 @@ namespace Inventory_Problem
                 ThirdLabel(i);
                 for (decimal j = minProcurement; j <= maxProcurement; j += MainForm.installments)
                 {
-                    Label a = new Label();
+                    Label a = new();
                     decimal procurementCost = 0;
                     if (j > 0) procurementCost = MainForm.cost;
                     decimal findPrevious = MainForm.table[i, 0] + MainForm.demands[MainForm.globalPeriod - 1] - j;
@@ -88,34 +90,44 @@ namespace Inventory_Problem
 
         private void InitialLabel(int i)
         {
-            Label a = new Label();
-            a.Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1] + " - " + MainForm.maxStorage +
-                " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1]);
-            a.Location = new Point(x, y);
-            a.AutoSize = false;
-            a.Size = new Size(437, 23);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Label a = new()
+            {
+                Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1] + " - " + MainForm.maxStorage +
+                " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1]),
+                Location = new Point(x, y),
+                AutoSize = false,
+                Size = new Size(437, 23)
+            };
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
             y += 25; z += 25;
         }
 
         private void SecondLabel(decimal minProcurement, decimal maxProcurement)
         {
-            Label a = new Label();
-            a.Text = new string(minProcurement + " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + maxProcurement);
-            a.Location = new Point(x, y);
-            a.AutoSize = false;
-            a.Size = new Size(437, 23);
+            Label a = new()
+            {
+                Text = new string(minProcurement + " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + maxProcurement),
+                Location = new Point(x, y),
+                AutoSize = false,
+                Size = new Size(437, 23)
+            };
             this.Controls.Add(a);
             y += 25; z += 25;
         }
 
         private void ThirdLabel(int i)
         {
-            Label a = new Label();
-            a.Text = new string("f(" + (MainForm.globalPeriod) + ")[" + MainForm.table[i, 0] + "] = min ->");
-            a.Location = new Point(x, y);
-            a.AutoSize = false;
-            a.Size = new Size(437, 23);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Label a = new()
+            {
+                Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] = min ->"),
+                Location = new Point(x, y),
+                AutoSize = false,
+                Size = new Size(437, 23)
+            };
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
             y += 25; z += 25;
         }
@@ -123,6 +135,7 @@ namespace Inventory_Problem
         private void FillAndShowUpdatedTable()
         {
             z = 75;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             for (int i = 0; i < MainForm.table.GetLength(0); i++)
             {
                 string table = "";
@@ -134,31 +147,43 @@ namespace Inventory_Problem
                 }
                 decimal[] decimalValues = Array.ConvertAll(table.Split(","), decimal.Parse);
                 DataRow dataRow = dt.NewRow();
-                for(int j = 0; j < decimalValues.Length; j++) dataRow[j] = decimalValues[j];
+                for (int j = 0; j < decimalValues.Length; j++) dataRow[j] = decimalValues[j];
                 dt.Rows.Add(dataRow);
                 z += 25;
             }
-            DataGridView dgv = new DataGridView();
-            dgv.DataSource = dt;
-            dgv.Location = new Point(x, y);
-            dgv.Size = new Size(540, z);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            DataGridView dgv = new()
+            {
+                DataSource = dt,
+                Location = new Point(x, y),
+                Size = new Size(540, z)
+            };
             this.Controls.Add(dgv);
             y += z + 25;
             x = 115;
-            Button b = new Button();
-            b.Text = Properties.strings.Back;
-            b.Location = new Point(x, y);
-            b.Size = new Size(150, 23);
+            Button b = new()
+            {
+                Text = Properties.strings.Back,
+                Location = new Point(x, y),
+                Size = new Size(150, 23)
+            };
             b.Click += new EventHandler(GoBack);
             this.Controls.Add(b);
             x += 190;
-            Button c = new Button();
-            c.Text = Properties.strings.NextPeriod;
+            Button c = new()
+            {
+                Text = Properties.strings.NextPeriod,
+                Location = new Point(x, y),
+                Size = new Size(150, 23)
+            };
             if (MainForm.globalPeriod == MainForm.numPeriods) c.Text = Properties.strings.Analysis;
-            c.Location = new Point(x, y);
-            c.Size = new Size(150, 23);
             c.Click += new EventHandler(GoToNextPeriod);
             this.Controls.Add(c);
+        }
+
+        private void OtherPeriods_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.globalPeriod -= 1;
         }
 
         private void GoToNextPeriod(object? sender, EventArgs e)
@@ -166,9 +191,10 @@ namespace Inventory_Problem
             if (MainForm.globalPeriod == MainForm.numPeriods)
             {
                 this.Hide();
-                //Form analysis = new AnalysisOfResults();
-                //analysis.ShowDialog();
-                this.Show();
+                Form analysis = new AnalysisOfResults();
+                analysis.ShowDialog();
+                if (MainForm.forceClose) this.Close();
+                else this.Show();
             }
             else
             {
@@ -176,13 +202,14 @@ namespace Inventory_Problem
                 this.Hide();
                 Form nextPeriod = new OtherPeriods();
                 nextPeriod.ShowDialog();
-                this.Show();
+                if (MainForm.forceClose) this.Close();
+                else this.Show();
             }
         }
 
         private void GoBack(object? sender, EventArgs e)
         {
-            MainForm.globalPeriod -= 1;
+            MainForm.forceClose = false;
             this.Close();
         }
     }

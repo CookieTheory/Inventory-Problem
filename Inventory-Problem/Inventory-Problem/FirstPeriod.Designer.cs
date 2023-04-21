@@ -70,6 +70,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FirstPeriod";
             this.Text = "FirstPeriod";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FirstPeriod_FormClosed);
             this.Load += new System.EventHandler(this.FirstPeriod_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
