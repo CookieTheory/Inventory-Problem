@@ -28,32 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            label1 = new Label();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "f(2)";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(25, 15);
+            label1.TabIndex = 1;
+            label1.Text = "f(2)";
             // 
             // OtherPeriods
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(310, 219);
-            this.Controls.Add(this.label1);
-            this.Name = "OtherPeriods";
-            this.Text = "OtherPeriods";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OtherPeriods_FormClosed);
-            this.Load += new System.EventHandler(this.OtherPeriods_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            ClientSize = new Size(263, 219);
+            Controls.Add(label1);
+            Name = "OtherPeriods";
+            Text = "OtherPeriods";
+            FormClosed += OtherPeriods_FormClosed;
+            Load += OtherPeriods_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

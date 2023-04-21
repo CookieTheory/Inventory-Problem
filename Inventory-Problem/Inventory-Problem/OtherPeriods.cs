@@ -56,7 +56,6 @@ namespace Inventory_Problem
                 ThirdLabel(i);
                 for (decimal j = minProcurement; j <= maxProcurement; j += MainForm.installments)
                 {
-                    Label a = new();
                     decimal procurementCost = 0;
                     if (j > 0) procurementCost = MainForm.cost;
                     decimal findPrevious = MainForm.table[i, 0] + MainForm.demands[MainForm.globalPeriod - 1] - j;
@@ -71,10 +70,13 @@ namespace Inventory_Problem
                         minimum = calculated;
                         selectedProcurement = j;
                     }
-                    a.Text = new string(procurementCost.ToString() + " + " + (MainForm.storageCost * MainForm.table[i, 0]) + " + " + addedPrevious + " = " + calculated);
-                    a.Location = new Point(x, y);
-                    a.AutoSize = false;
-                    a.Size = new Size(437, 23);
+                    Label a = new()
+                    {
+                        Text = new string(procurementCost.ToString() + " + " + (MainForm.storageCost * MainForm.table[i, 0]) + " + " + addedPrevious + " = " + calculated),
+                        Location = new Point(x, y),
+                        AutoSize = true,
+                        //Size = new Size(437, 23)
+                    };
                     this.Controls.Add(a);
                     y += 25; z += 25;
                     if (j == maxProcurement)
@@ -96,8 +98,8 @@ namespace Inventory_Problem
                 Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1] + " - " + MainForm.maxStorage +
                 " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1]),
                 Location = new Point(x, y),
-                AutoSize = false,
-                Size = new Size(437, 23)
+                AutoSize = true,
+                //Size = new Size(437, 23)
             };
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
@@ -110,8 +112,8 @@ namespace Inventory_Problem
             {
                 Text = new string(minProcurement + " <= " + Properties.strings.Procurement + "(" + MainForm.globalPeriod + ") <= " + maxProcurement),
                 Location = new Point(x, y),
-                AutoSize = false,
-                Size = new Size(437, 23)
+                AutoSize = true,
+                //Size = new Size(437, 23)
             };
             this.Controls.Add(a);
             y += 25; z += 25;
@@ -124,8 +126,8 @@ namespace Inventory_Problem
             {
                 Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] = min ->"),
                 Location = new Point(x, y),
-                AutoSize = false,
-                Size = new Size(437, 23)
+                AutoSize = true,
+                //Size = new Size(437, 23)
             };
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
@@ -134,6 +136,8 @@ namespace Inventory_Problem
 
         private void FillAndShowUpdatedTable()
         {
+            x = 300;
+            y = 50;
             z = 75;
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             for (int i = 0; i < MainForm.table.GetLength(0); i++)
@@ -160,7 +164,7 @@ namespace Inventory_Problem
             };
             this.Controls.Add(dgv);
             y += z + 25;
-            x = 115;
+            x += 115;
             Button b = new()
             {
                 Text = Properties.strings.Back,
@@ -192,6 +196,8 @@ namespace Inventory_Problem
             {
                 this.Hide();
                 Form analysis = new AnalysisOfResults();
+                analysis.StartPosition = FormStartPosition.Manual;
+                analysis.Location = new Point(100, 100);
                 analysis.ShowDialog();
                 if (MainForm.forceClose) this.Close();
                 else this.Show();
@@ -201,6 +207,8 @@ namespace Inventory_Problem
                 MainForm.globalPeriod += 1;
                 this.Hide();
                 Form nextPeriod = new OtherPeriods();
+                nextPeriod.StartPosition = FormStartPosition.Manual;
+                nextPeriod.Location = new Point(100, 100);
                 nextPeriod.ShowDialog();
                 if (MainForm.forceClose) this.Close();
                 else this.Show();

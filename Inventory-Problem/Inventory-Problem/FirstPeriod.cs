@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace Inventory_Problem
 {
@@ -112,6 +113,8 @@ namespace Inventory_Problem
             MainForm.globalPeriod += 1;
             this.Hide();
             Form nextPeriod = new OtherPeriods();
+            nextPeriod.StartPosition = FormStartPosition.Manual;
+            nextPeriod.Location = new Point(100, 100);
             nextPeriod.ShowDialog();
             if (MainForm.forceClose) this.Close();
             else this.Show();

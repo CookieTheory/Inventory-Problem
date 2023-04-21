@@ -12,6 +12,7 @@ namespace Inventory_Problem
 
         public MainForm()
         {
+            this.Location = new Point(100, 100);
             InitializeComponent();
             RefreshLanguageStrings();
         }
@@ -33,10 +34,14 @@ namespace Inventory_Problem
         {
             AddValues();
             Form demand = new Demands((int)this.numericUpDown6.Value);
+            demand.StartPosition = FormStartPosition.Manual;
+            demand.Location = new Point(100, 100);
             demand.ShowDialog();
             this.Hide();
             MainForm.globalPeriod = 1;
             Form firstPeriod = new FirstPeriod();
+            firstPeriod.StartPosition = FormStartPosition.Manual;
+            firstPeriod.Location = new Point(100, 100);
             firstPeriod.ShowDialog();
             this.Show();
         }
