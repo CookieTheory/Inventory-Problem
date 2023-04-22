@@ -15,6 +15,7 @@ namespace Inventory_Problem
     {
         private readonly DataTable dt = new();
         private decimal[,]? analysisTable;
+        private int x, y, z;
         public AnalysisOfResults()
         {
             InitializeComponent();
@@ -30,13 +31,13 @@ namespace Inventory_Problem
 
         private void AddColumns()
         {
-            dt.Columns.Add(Properties.strings.OtherPeriod, typeof(decimal));
-            dt.Columns.Add("I(i-1)", typeof(decimal));
-            dt.Columns.Add("Q(i)", typeof(decimal));
-            dt.Columns.Add("D(i)", typeof(decimal));
-            dt.Columns.Add("I(i)", typeof(decimal));
-            dt.Columns.Add("Cp(i)", typeof(decimal));
-            dt.Columns.Add("Ch(1)", typeof(decimal));
+            dt.Columns.Add(Properties.strings.OtherPeriod, typeof(string));
+            dt.Columns.Add("I(i-1)", typeof(string));
+            dt.Columns.Add("Q(i)", typeof(string));
+            dt.Columns.Add("D(i)", typeof(string));
+            dt.Columns.Add("I(i)", typeof(string));
+            dt.Columns.Add("Cp(i)", typeof(string));
+            dt.Columns.Add("Ch(i)", typeof(string));
         }
 
         private void CreateAnalysisTable()
@@ -45,7 +46,7 @@ namespace Inventory_Problem
             analysisTable = new decimal[height + 2, 7];
             for (int i = 0; i < height; i++)
             {
-                analysisTable[0, i] = (decimal)i + 1;
+                analysisTable[i, 0] = (decimal)i + 1;
             }
         }
 
@@ -74,12 +75,71 @@ namespace Inventory_Problem
 
         private void CalculateCosts()
         {
-            throw new NotImplementedException();
+            decimal costs = 0;
+            decimal storageCosts = 0;
+            for (int i = 0; i < MainForm.table.GetLength(0); i++)
+            {
+                if (analysisTable[i, 2] > 0) { analysisTable[i, 5] = MainForm.cost; costs += MainForm.cost; }
+                if (analysisTable[i, 4] > 0)
+                {
+                    analysisTable[i, 6] = analysisTable[i, 4] * MainForm.storageCost;
+                    storageCosts += analysisTable[i, 4] * MainForm.storageCost;
+                }
+            }
+            analysisTable[analysisTable.GetLength(0) - 2, 5] = costs;
+            analysisTable[analysisTable.GetLength(0) - 2, 6] = storageCosts;
+            analysisTable[analysisTable.GetLength(0) - 1, 5] = costs + storageCosts;
         }
 
         private void ShowTable()
         {
-            throw new NotImplementedException();
+            x = 300;
+            y = 50;
+            z = 75;
+            for (int i = 0; i < analysisTable.GetLength(0) - 2; i++)
+            {
+                string table = "";
+                for (int j = 0; j < analysisTable.GetLength(1); j++)
+                {
+                    if (j == analysisTable.GetLength(1) - 1) table += $"{analysisTable[i, j]}";
+                    else if (j == 0) table += $"{analysisTable[i, j]}, ";
+                    else table += $"{analysisTable[i, j]}, ";
+                }
+                decimal[] decimalValues = Array.ConvertAll(table.Split(","), decimal.Parse);
+                DataRow dataRow = dt.NewRow();
+                for (int j = 0; j < decimalValues.Length; j++) dataRow[j] = decimalValues[j];
+                dt.Rows.Add(dataRow);
+                z += 25;
+            }
+            for (int i = analysisTable.GetLength(0) - 2; i < analysisTable.GetLength(0); i++)
+            {
+                string table = "";
+                for (int j = 0; j < analysisTable.GetLength(1); j++)
+                {
+                    if (j == analysisTable.GetLength(1) - 1) table += $"{analysisTable[i, j]}";
+                    else if (j == 0) table += $"{analysisTable[i, j]}, ";
+                    else table += $"{analysisTable[i, j]}, ";
+                }
+                decimal[] decimalValues = Array.ConvertAll(table.Split(","), decimal.Parse);
+                DataRow dataRow = dt.NewRow();
+                for (int j = 0; j < decimalValues.Length - 3; j++) dataRow[j] = "-";
+                for (int j = decimalValues.Length - 2; j < decimalValues.Length; j++) dataRow[j] = decimalValues[j];
+                if (i == analysisTable.GetLength(0) - 2) dataRow[decimalValues.Length - 3] = "Zbroj";
+                else
+                {
+                    dataRow[decimalValues.Length - 3] = "Suma";
+                    dataRow[decimalValues.Length - 1] = "-";
+                }
+                dt.Rows.Add(dataRow);
+                z += 25;
+            }
+            DataGridView dgv = new()
+            {
+                DataSource = dt,
+                Location = new Point(x, y),
+                Size = new Size(740, z)
+            };
+            this.Controls.Add(dgv);
         }
 
         private decimal LookupValue(decimal v, int period)

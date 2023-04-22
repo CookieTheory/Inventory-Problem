@@ -139,7 +139,6 @@ namespace Inventory_Problem
             x = 300;
             y = 50;
             z = 75;
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             for (int i = 0; i < MainForm.table.GetLength(0); i++)
             {
                 string table = "";
@@ -155,7 +154,6 @@ namespace Inventory_Problem
                 dt.Rows.Add(dataRow);
                 z += 25;
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             DataGridView dgv = new()
             {
                 DataSource = dt,

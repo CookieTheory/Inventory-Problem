@@ -34,7 +34,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            AutoSize = true;
+            ClientSize = new Size(280, 149);
             Name = "AnalysisOfResults";
             Text = "AnalysisOfResults";
             Load += AnalysisOfResults_Load;
