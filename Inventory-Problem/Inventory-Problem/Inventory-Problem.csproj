@@ -10,6 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\strings.hr.Designer.cs">
       <DependentUpon>strings.hr.resx</DependentUpon>
       <DesignTime>True</DesignTime>
