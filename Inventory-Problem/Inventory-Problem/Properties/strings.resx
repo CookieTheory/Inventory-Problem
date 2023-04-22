@@ -163,7 +163,7 @@
     <value>Number of periods:</value>
   </data>
   <data name="OtherPeriod" xml:space="preserve">
-    <value>period</value>
+    <value>Period</value>
   </data>
   <data name="Period" xml:space="preserve">
     <value> period:</value>

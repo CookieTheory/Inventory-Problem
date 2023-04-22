@@ -196,7 +196,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to period.
+        ///   Looks up a localized string similar to Period.
         /// </summary>
         internal static string OtherPeriod {
             get {

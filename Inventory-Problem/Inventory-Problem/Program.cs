@@ -11,7 +11,10 @@ namespace Inventory_Problem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Form mainForm = new MainForm();
+            mainForm.StartPosition = FormStartPosition.Manual;
+            mainForm.Location = new Point(100, 100);
+            Application.Run(mainForm);
         }
     }
 }
