@@ -158,11 +158,11 @@ namespace Inventory_Problem
             {
                 DataSource = dt,
                 Location = new Point(x, y),
-                Size = new Size(540, z)
+                Size = new Size(740, z)
             };
             this.Controls.Add(dgv);
             y += z + 25;
-            x += 115;
+            x += 215;
             Button b = new()
             {
                 Text = Properties.strings.Back,

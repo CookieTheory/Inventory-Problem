@@ -93,7 +93,7 @@ namespace Inventory_Problem
 
         private void ShowTable()
         {
-            x = 300;
+            x = 10;
             y = 50;
             z = 75;
             for (int i = 0; i < analysisTable.GetLength(0) - 2; i++)
@@ -140,6 +140,25 @@ namespace Inventory_Problem
                 Size = new Size(740, z)
             };
             this.Controls.Add(dgv);
+            y += z + 25;
+            x += 215;
+            Button b = new()
+            {
+                Text = Properties.strings.Back,
+                Location = new Point(x, y),
+                Size = new Size(150, 23)
+            };
+            b.Click += new EventHandler(GoBack);
+            this.Controls.Add(b);
+            x += 190;
+            Button c = new()
+            {
+                Text = Properties.strings.NextPeriod,
+                Location = new Point(x, y),
+                Size = new Size(150, 23)
+            };
+            c.Click += new EventHandler(Finish);
+            this.Controls.Add(c);
         }
 
         private decimal LookupValue(decimal v, int period)
@@ -160,6 +179,16 @@ namespace Inventory_Problem
             }
             if (min == 999999) min = 0;
             return min;
+        }
+
+        private void GoBack(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Finish(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
