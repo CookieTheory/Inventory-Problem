@@ -137,7 +137,9 @@ namespace Inventory_Problem
             {
                 DataSource = dt,
                 Location = new Point(x, y),
-                Size = new Size(740, z)
+                Size = new Size(740, z),
+                ReadOnly = true,
+                TabStop = false
             };
             this.Controls.Add(dgv);
             y += z + 25;
@@ -183,12 +185,13 @@ namespace Inventory_Problem
 
         private void GoBack(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MainForm.forceClose = false;
+            this.Close();
         }
 
         private void Finish(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Close();
         }
     }
 }
