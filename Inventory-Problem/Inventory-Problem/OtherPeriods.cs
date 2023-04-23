@@ -43,7 +43,6 @@ namespace Inventory_Problem
             x = 10;
             y = 50;
             z = 75;
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             for (int i = 0; i < MainForm.table.GetLength(0); i++)
             {
                 decimal minimum = 99999;
@@ -52,6 +51,7 @@ namespace Inventory_Problem
                 decimal minProcurement = MainForm.table[i, 0] + MainForm.demands[MainForm.globalPeriod - 1] - MainForm.maxStorage;
                 decimal maxProcurement = MainForm.table[i, 0] + MainForm.demands[MainForm.globalPeriod - 1];
                 if (maxProcurement > MainForm.maxVolume) maxProcurement = MainForm.maxVolume;
+                if (minProcurement < 0) minProcurement = 0;
                 SecondLabel(minProcurement, maxProcurement);
                 ThirdLabel(i);
                 for (decimal j = minProcurement; j <= maxProcurement; j += MainForm.installments)
@@ -86,13 +86,11 @@ namespace Inventory_Problem
                     }
                 }
             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             FillAndShowUpdatedTable();
         }
 
         private void InitialLabel(int i)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             Label a = new()
             {
                 Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] " + MainForm.table[i, 0] + " + " + MainForm.demands[MainForm.globalPeriod - 1] + " - " + MainForm.maxStorage +
@@ -101,7 +99,6 @@ namespace Inventory_Problem
                 AutoSize = true,
                 //Size = new Size(437, 23)
             };
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
             y += 25; z += 25;
         }
@@ -121,7 +118,6 @@ namespace Inventory_Problem
 
         private void ThirdLabel(int i)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             Label a = new()
             {
                 Text = new string("f(" + MainForm.globalPeriod + ")[" + MainForm.table[i, 0] + "] = min ->"),
@@ -129,7 +125,6 @@ namespace Inventory_Problem
                 AutoSize = true,
                 //Size = new Size(437, 23)
             };
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Controls.Add(a);
             y += 25; z += 25;
         }

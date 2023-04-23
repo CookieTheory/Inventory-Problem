@@ -25,9 +25,7 @@ namespace Inventory_Problem
         private void FirstPeriod_Load(object sender, EventArgs e)
         {
             AddColumns();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             labelFirstPeriod1.Text = new string(MainForm.maxStorage + " + " + MainForm.demands[0] + " - " + MainForm.maxStorage + " <= " + Properties.strings.Procurement + "(1) <= " + MainForm.maxStorage + " + " + MainForm.demands[0]);
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
             this.Text = Properties.strings.FirstPeriod;
             CalculateFirstPeriod();
         }
@@ -47,10 +45,10 @@ namespace Inventory_Problem
             x = 10;
             y = 100;
             z = 75;
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
             decimal minProcurement = MainForm.maxStorage + MainForm.demands[0] - MainForm.maxStorage;
             decimal maxProcurement = MainForm.maxStorage + MainForm.demands[0];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
+            if (maxProcurement > MainForm.maxVolume) maxProcurement = MainForm.maxVolume;
+            if (minProcurement < 0) minProcurement = 0;
             labelFirstPeriod2.Text = new string(minProcurement + " <= " + Properties.strings.Procurement + "(1) <= " + maxProcurement);
             int j = 0;
             for (decimal i = minProcurement; i <= maxProcurement; i += MainForm.installments)
