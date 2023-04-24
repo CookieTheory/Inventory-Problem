@@ -130,7 +130,7 @@
     <value>Calculate</value>
   </data>
   <data name="CostPerProcurement" xml:space="preserve">
-    <value>Cost per procurement:</value>
+    <value>Cost per procurement</value>
   </data>
   <data name="Demands" xml:space="preserve">
     <value>Demands</value>
@@ -148,10 +148,10 @@
     <value>Language:</value>
   </data>
   <data name="MaxCapacity" xml:space="preserve">
-    <value>Maximum capacity size:</value>
+    <value>Maximum capacity size</value>
   </data>
   <data name="MaxPurchase" xml:space="preserve">
-    <value>Maximum purchase volume:</value>
+    <value>Maximum purchase volume</value>
   </data>
   <data name="NextPeriod" xml:space="preserve">
     <value>Next period</value>
@@ -159,8 +159,11 @@
   <data name="Null" xml:space="preserve">
     <value>Values cannot be null.</value>
   </data>
+  <data name="NullMessage" xml:space="preserve">
+    <value> can't be zero.</value>
+  </data>
   <data name="NumPeriods" xml:space="preserve">
-    <value>Number of periods:</value>
+    <value>Number of periods</value>
   </data>
   <data name="OtherPeriod" xml:space="preserve">
     <value>Period</value>
@@ -172,12 +175,15 @@
     <value>Procurement</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>Size of installments:</value>
+    <value>Size of installments</value>
   </data>
   <data name="StorageCosts" xml:space="preserve">
-    <value>Storage costs per unit:</value>
+    <value>Storage costs per unit</value>
   </data>
   <data name="Supplies" xml:space="preserve">
     <value>Supplies</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value of </value>
   </data>
 </root>

@@ -130,7 +130,7 @@
     <value>Izračunaj</value>
   </data>
   <data name="CostPerProcurement" xml:space="preserve">
-    <value>Nabavni trošak:</value>
+    <value>Nabavni trošak</value>
   </data>
   <data name="Demands" xml:space="preserve">
     <value>Potražnje</value>
@@ -148,16 +148,19 @@
     <value>Jezik:</value>
   </data>
   <data name="MaxCapacity" xml:space="preserve">
-    <value>Kapacitet skladišta:</value>
+    <value>Kapacitet skladišta</value>
   </data>
   <data name="MaxPurchase" xml:space="preserve">
-    <value>Maksimalna količina nabave:</value>
+    <value>Maksimalna količina nabave</value>
   </data>
   <data name="NextPeriod" xml:space="preserve">
     <value>Sljedeći period</value>
   </data>
   <data name="Null" xml:space="preserve">
     <value>Vrijednosti ne smiju ostati prazne.</value>
+  </data>
+  <data name="NullMessage" xml:space="preserve">
+    <value> ne može biti nula.</value>
   </data>
   <data name="NumPeriods" xml:space="preserve">
     <value>Broj razdoblja:</value>
@@ -172,12 +175,15 @@
     <value>Nabava</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>Veličina nabavne rate:</value>
+    <value>Veličina nabavne rate</value>
   </data>
   <data name="StorageCosts" xml:space="preserve">
-    <value>Troškovi skladištenja po jedinici:</value>
+    <value>Troškovi skladištenja po jedinici</value>
   </data>
   <data name="Supplies" xml:space="preserve">
     <value>Zalihe</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Vrijednost </value>
   </data>
 </root>

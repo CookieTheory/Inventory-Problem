@@ -33,17 +33,30 @@ namespace Inventory_Problem
         private void buttonCalculate_Click(object sender, EventArgs e)
         {
             AddValues();
-            Form demand = new Demands((int)this.numericUpDown6.Value);
-            demand.StartPosition = FormStartPosition.Manual;
-            demand.Location = new Point(100, 100);
-            demand.ShowDialog();
-            this.Hide();
-            MainForm.globalPeriod = 1;
-            Form firstPeriod = new FirstPeriod();
-            firstPeriod.StartPosition = FormStartPosition.Manual;
-            firstPeriod.Location = new Point(100, 100);
-            firstPeriod.ShowDialog();
-            this.Show();
+            try
+            {
+                if (installments == 0) throw new Exception(Properties.strings.Value + Properties.strings.Size
+                    + Properties.strings.NullMessage);
+                else if (maxVolume == 0) throw new Exception(Properties.strings.Value + Properties.strings.MaxPurchase
+                    + Properties.strings.NullMessage);
+                else if (numPeriods == 0) throw new Exception(Properties.strings.Value + Properties.strings.NumPeriods
+                    + Properties.strings.NullMessage);
+                Form demand = new Demands((int)this.numericUpDown6.Value);
+                demand.StartPosition = FormStartPosition.Manual;
+                demand.Location = new Point(100, 100);
+                demand.ShowDialog();
+                this.Hide();
+                MainForm.globalPeriod = 1;
+                Form firstPeriod = new FirstPeriod();
+                firstPeriod.StartPosition = FormStartPosition.Manual;
+                firstPeriod.Location = new Point(100, 100);
+                firstPeriod.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddValues()
@@ -60,12 +73,12 @@ namespace Inventory_Problem
         {
             this.Text = Properties.strings.AppName;
             this.languageLabel.Text = Properties.strings.Language;
-            this.labelCostProcurement.Text = Properties.strings.CostPerProcurement;
-            this.labelMaxCapacity.Text = Properties.strings.MaxCapacity;
-            this.labelMaxVolume.Text = Properties.strings.MaxPurchase;
-            this.labelNumPeriods.Text = Properties.strings.NumPeriods;
-            this.labelSizeOfInstallments.Text = Properties.strings.Size;
-            this.labelStorageCosts.Text = Properties.strings.StorageCosts;
+            this.labelCostProcurement.Text = Properties.strings.CostPerProcurement + ":";
+            this.labelMaxCapacity.Text = Properties.strings.MaxCapacity + ":";
+            this.labelMaxVolume.Text = Properties.strings.MaxPurchase + ":";
+            this.labelNumPeriods.Text = Properties.strings.NumPeriods + ":";
+            this.labelSizeOfInstallments.Text = Properties.strings.Size + ":";
+            this.labelStorageCosts.Text = Properties.strings.StorageCosts + ":";
             this.buttonCalculate.Text = Properties.strings.Calculate;
         }
     }

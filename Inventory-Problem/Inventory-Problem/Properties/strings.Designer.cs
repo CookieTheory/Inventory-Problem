@@ -97,7 +97,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cost per procurement:.
+        ///   Looks up a localized string similar to Cost per procurement.
         /// </summary>
         internal static string CostPerProcurement {
             get {
@@ -151,7 +151,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum capacity size:.
+        ///   Looks up a localized string similar to Maximum capacity size.
         /// </summary>
         internal static string MaxCapacity {
             get {
@@ -160,7 +160,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum purchase volume:.
+        ///   Looks up a localized string similar to Maximum purchase volume.
         /// </summary>
         internal static string MaxPurchase {
             get {
@@ -187,7 +187,16 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of periods:.
+        ///   Looks up a localized string similar to  can&apos;t be zero..
+        /// </summary>
+        internal static string NullMessage {
+            get {
+                return ResourceManager.GetString("NullMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of periods.
         /// </summary>
         internal static string NumPeriods {
             get {
@@ -223,7 +232,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size of installments:.
+        ///   Looks up a localized string similar to Size of installments.
         /// </summary>
         internal static string Size {
             get {
@@ -232,7 +241,7 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Storage costs per unit:.
+        ///   Looks up a localized string similar to Storage costs per unit.
         /// </summary>
         internal static string StorageCosts {
             get {
@@ -246,6 +255,15 @@ namespace Inventory_Problem.Properties {
         internal static string Supplies {
             get {
                 return ResourceManager.GetString("Supplies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value of .
+        /// </summary>
+        internal static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
             }
         }
     }
