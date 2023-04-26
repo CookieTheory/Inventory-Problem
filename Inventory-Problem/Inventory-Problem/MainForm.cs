@@ -14,12 +14,13 @@ namespace Inventory_Problem
         {
             this.Location = new Point(100, 100);
             InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("hr");
             RefreshLanguageStrings();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.comboBoxLanguageSelect.SelectedIndex = 0;
+            this.comboBoxLanguageSelect.SelectedIndex = 1;
         }
 
         private void comboBoxLanguageSelect_SelectionChangeCommitted(object sender, EventArgs e)
