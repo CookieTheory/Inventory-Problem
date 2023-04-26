@@ -120,6 +120,9 @@
   <data name="Analysis" xml:space="preserve">
     <value>Analiza</value>
   </data>
+  <data name="AnalysisOfResults" xml:space="preserve">
+    <value>Analiza rezultata</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Problem nabave</value>
   </data>
@@ -137,6 +140,9 @@
   </data>
   <data name="DemandsOf" xml:space="preserve">
     <value>Potražnja </value>
+  </data>
+  <data name="EndTask" xml:space="preserve">
+    <value>Kraj</value>
   </data>
   <data name="FirstPeriod" xml:space="preserve">
     <value>Prvi period</value>

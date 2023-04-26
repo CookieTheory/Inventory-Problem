@@ -23,7 +23,7 @@ namespace Inventory_Problem
 
         private void AnalysisOfResults_Load(object sender, EventArgs e)
         {
-
+            this.Text = Properties.strings.AnalysisOfResults;
             AddColumns();
             CreateAnalysisTable();
             CalculateAnalysis();
@@ -155,7 +155,7 @@ namespace Inventory_Problem
             x += 190;
             Button c = new()
             {
-                Text = Properties.strings.NextPeriod,
+                Text = Properties.strings.EndTask,
                 Location = new Point(x, y),
                 Size = new Size(150, 23)
             };

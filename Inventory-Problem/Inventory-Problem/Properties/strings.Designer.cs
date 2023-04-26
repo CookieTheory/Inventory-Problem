@@ -70,6 +70,15 @@ namespace Inventory_Problem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Analysis of results.
+        /// </summary>
+        internal static string AnalysisOfResults {
+            get {
+                return ResourceManager.GetString("AnalysisOfResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inventory problem.
         /// </summary>
         internal static string AppName {
@@ -120,6 +129,15 @@ namespace Inventory_Problem.Properties {
         internal static string DemandsOf {
             get {
                 return ResourceManager.GetString("DemandsOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End task.
+        /// </summary>
+        internal static string EndTask {
+            get {
+                return ResourceManager.GetString("EndTask", resourceCulture);
             }
         }
         
